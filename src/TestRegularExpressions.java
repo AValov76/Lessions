@@ -4,7 +4,8 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class TestRegularExpressions {
-    public static void print(Object o) {
+
+    private static void print(Object o) {
         System.out.println(o);
     }
 
@@ -12,10 +13,10 @@ public class TestRegularExpressions {
 
         //строка для исследования регулрного выражения и сами регулярные выражения
         String[] test = new String[]{"Java Java now    has regular expressions", "^Java", "Java", "\\breg\\w+", ".+", "n.w\\s+h(a|i)s", "s", "s?", "s*", "s+", "s{1}", "s{1}.", "s{0,3}", ""};
-        if (test.length < 2) {
-            print("In this case:" + "\"" + test + "\"" + "too small parameters");
+        //if (test.length < 2) {
+            print("In this case:" + "\"" + test.toString() + "\"" + "too small parameters");
             System.exit(0);
-        }
+        //}
         print("Input string is: \"" + test[0] + "\"");
         for (String s : test
         ) {
@@ -31,8 +32,7 @@ public class TestRegularExpressions {
         String[] test2 = new String[]{"Arline ate eight apples and one orange while Anita hadn`t any", "(?i)((^[aeiou])|(\\s+[aeiou]))\\w+?[aeiou]\\b"};
         Pattern p = Pattern.compile(test2[1]);
         Matcher m = p.matcher(test2[0]);
-        while (m.find()) {
-            print(m.group());
+        while (m.find()) { print(m.group());
         }
     }
 
