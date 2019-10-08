@@ -4,6 +4,9 @@ Exercise 9: (5) Modify the previous exercise so that it uses Class.getDeclaredFi
 */
 
 import java.lang.reflect.Field;
+import java.net.URLClassLoader;
+
+import static java.lang.Class.*;
 
 // --------------------------
 interface Zero {
@@ -43,7 +46,7 @@ public class Ex_P399 {
         System.out.println();
     }
 
-    public static void main(String... arg) {
+    public static void main(String... arg) throws ClassNotFoundException {
 
         // создаем объект класса Second
         Second second = new Second();
@@ -64,7 +67,14 @@ public class Ex_P399 {
             p = p.getSuperclass();
             i++;
         }
+        Class a = Second.class;
+        print(a);
+        try{
+            forName("a");
 
+        } catch (Exception e){ e.printStackTrace();
+
+        }
     }
 
 }
